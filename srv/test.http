@@ -1,0 +1,88 @@
+GET http://localhost:4004/CatalogService
+
+###
+GET http://localhost:4004/CatalogService/$metadata
+
+###
+GET http://localhost:4004/CatalogService/EmployeeSet?$top=2
+
+###
+GET http://localhost:4004/CatalogService/PoSet?$top=2&$expand=Items,PARTNER_GUID
+
+
+###
+POST http://localhost:4004/CatalogService/EmployeeSet
+Content-Type: application/json
+
+      {      
+          "nameFirst": "Avijeet",
+            "nameMiddle": null,
+            "nameLast": "Negel",
+            "nameInitials": null,
+            "sex": "M",
+            "language": "E",
+            "email": "avijeet.negel@info.com",
+            "loginName": "Avijeet",
+            "accountNumber": "111222333",
+            "bankName": "SBI Bank"
+        }
+###
+GET http://localhost:4004/CatalogService/EmployeeSet/97c03864-4f52-44e6-8496-f687ec834388
+
+###UPDATE THE SALARY FOR THE EMPLOYEE
+PATCH  http://localhost:4004/CatalogService/EmployeeSet/97c03864-4f52-44e6-8496-f687ec834388
+Content-Type: application/json
+
+        {      
+            "salaryAmount": "1000000000.99",
+            "Currency_code":"INR"
+            
+        }
+
+###
+GET http://localhost:4004/CatalogService/PoSet('74867AD200E41EDBA5D8B0C98DC28052')
+
+###GET THE SALARY FOR THE EMPLOYEE
+GET http://localhost:4004/mydemoser/ReadEmployeeSrv
+###
+GET http://localhost:4004/mydemoser/$metadata
+
+###UPDATE THE SALARY FOR THE EMPLOYEE
+PATCH  http://localhost:4004/mydemoser/UpdateEmployeeSet/97c03864-4f52-44e6-8496-f687ec834388
+Content-Type: application/json
+
+        {      
+            "salaryAmount": "1000000000.99",
+            "Currency_code":"INR"
+            
+        }
+
+###UPDATE THE SALARY FOR THE EMPLOYEE
+PATCH  http://localhost:4004/dummyService/UpdateEmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C197A7FB
+Content-Type: application/json
+    
+     {      
+            "ID": "02BD2137-0890-1EEA-A6C2-BB55C197A7FB",
+            "nameFirst":"Madhurima",
+            "nameLast":"Jemaet"
+            
+        }        
+###
+DELETE http://localhost:4004/dummyService/DeleteEmployeeSet/3cb1d97b-a37b-4fa2-9ac6-25e5e6a649f9
+###
+GET http://localhost:4004/dummyService
+
+###
+GET  http://localhost:4004/dummyService/ReadEmployeeSSet/02BD2137-0890-1EEA-A6C2-BB55C197A7FB
+
+###
+GET  http://localhost:4004/CatalogService/PoSet/74867AD200E41EDBA5D8B0C98DC2A052
+
+###
+POST http://localhost:4004/CatalogService/PoSet('74867AD200E41EDBA5D8B0C98DC2A052')/CatalogService.boost
+Content-Type: application/json
+
+{}
+
+###
+GET  http://localhost:4004/CatalogService/PoSet('74867AD200E41EDBA5D8B0C98DC2A052')/CatalogService.largestOrder
